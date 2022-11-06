@@ -131,7 +131,7 @@ public class CropViewController: UIViewController {
         case .canUseMultiplePresetFixedRatio(let defaultRatio):
                 if defaultRatio > 0 {
                     setFixedRatio(defaultRatio)
-                    cropView.aspectRatioLockEnabled = true
+//                    cropView.aspectRatioLockEnabled = true
                     config.cropToolbarConfig.presetRatiosButtonSelected = true
                 }
                 
@@ -185,7 +185,7 @@ public class CropViewController: UIViewController {
             createRatioSelector()
         }
         initLayout()
-        updateLayout()        
+        updateLayout()
     }
     
     override public func viewDidLayoutSubviews() {
@@ -238,9 +238,14 @@ public class CropViewController: UIViewController {
     
     private func setFixedRatio(_ ratio: Double, zoom: Bool = true) {
         cropToolbar.handleFixedRatioSetted(ratio: ratio)
+      if ratio == 16.0/9.0 {
+        // only lock for 16.0/9.0 and not the "Original" box which we want to be free adjustable
         cropView.aspectRatioLockEnabled = true
+      } else {
+        cropView.aspectRatioLockEnabled = false
+      }
         
-        if cropView.viewModel.aspectRatio != CGFloat(ratio) {
+//        if cropView.viewModel.aspectRatio != CGFloat(ratio) {
             cropView.viewModel.aspectRatio = CGFloat(ratio)
             
             if case .alwaysUsingOnePresetFixedRatio = config.presetFixedRatioType {
@@ -250,7 +255,7 @@ public class CropViewController: UIViewController {
                     self.cropView.setFixedRatioCropBox(zoom: zoom)
                 }
             }
-        }
+//        }
     }
     
     private func createCropView() {

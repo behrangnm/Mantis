@@ -59,7 +59,7 @@ public protocol CropToolbarConfigProtocol {
 // MARK: - CropToolbarConfig
 public struct CropToolbarConfig: CropToolbarConfigProtocol {
     public var heightForVerticalOrientation: CGFloat = 44
-    public var widthForHorizontalOrientation: CGFloat = 80
+    public var widthForHorizontalOrientation: CGFloat = 90
 
     public var optionButtonFontSize: CGFloat = 14
     public var optionButtonFontSizeForPad: CGFloat = 20

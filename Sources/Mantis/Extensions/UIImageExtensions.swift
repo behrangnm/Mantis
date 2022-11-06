@@ -100,12 +100,13 @@ extension UIImage {
     }
     
     func ratioH() -> CGFloat {
-        let orientationArray: [UIImage.Orientation] = [.up, .upMirrored, .down, .downMirrored]
-        if orientationArray.contains(imageOrientation) {
-            return size.width / size.height
-        } else {
-            return size.height / size.width
-        }
+      return size.width / size.height
+//        let orientationArray: [UIImage.Orientation] = [.up, .upMirrored, .down, .downMirrored]
+//        if orientationArray.contains(imageOrientation) {
+//            return size.width / size.height
+//        } else {
+//            return size.height / size.width
+//        }
     }
     
     func crop(by cropInfo: CropInfo, borderWidth: CGFloat = 0, borderColor: UIColor = .clear) -> UIImage? {
