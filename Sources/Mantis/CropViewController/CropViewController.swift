@@ -292,6 +292,7 @@ public class CropViewController: UIViewController {
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.didSelectRatio(ratio: 16.0/9.0)
         processPresetTransformation { [weak self] transform in
             guard let self = self else { return }
             if case .alwaysUsingOnePresetFixedRatio(let ratio) = self.config.presetFixedRatioType {
